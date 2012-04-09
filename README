@@ -1,4 +1,5 @@
-Simple demo app inspired by Path 2.0's use of a parallax effect in conjunction with a UITableView.
+Simple demo app inspired by Path 2.0's use of a parallax effect in conjunction with a UITableView. The background can either be a single image or an array of images.
+If a table view isn't required, this can be trivially modified to use UIScrollView.
 
 License:
 
