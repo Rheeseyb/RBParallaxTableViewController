@@ -1,8 +1,8 @@
 //
-//  RBAppDelegate.m
+//  RBParallaxDemo.h
 //  RBParallaxTableViewController
 //
-//  Created by @RheeseyB on 01/02/2012.
+//  Created by @RheeseyB on 09/04/2012.
 //  Copyright (c) 2012 Rheese Burgess. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -24,32 +24,6 @@
 //  SOFTWARE.
 //
 
-
-#import "RBAppDelegate.h"
-#import "RBParallaxDemo.h"
-
-@implementation RBAppDelegate
-
-@synthesize window = _window;
-
-- (void)dealloc
-{
-    [_window release];
-    [super dealloc];
-}
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    RBParallaxDemo         *demoController = [[[RBParallaxDemo alloc] initWithNibName:nil bundle:nil] autorelease];
-    UINavigationController *navController  = [[[UINavigationController alloc] initWithRootViewController:demoController] autorelease];
-    demoController.title                   = @"Parallax Demo";
-    
-    self.window                     = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    self.window.rootViewController  = navController;
-    self.window.backgroundColor     = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    
-    return YES;
-}
+@interface RBParallaxDemo : UITableViewController
 
 @end

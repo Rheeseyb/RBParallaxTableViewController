@@ -1,5 +1,5 @@
 //
-//  RBParallaxTableVC.m
+//  RBParallaxScrollerTableVC.m
 //  RBParallaxTableViewController
 //
 //  Created by @RheeseyB on 01/02/2012.
@@ -24,23 +24,38 @@
 //  SOFTWARE.
 //
 
-#import "RBParallaxTableVC.h"
 
-@implementation RBParallaxTableVC
+#import "RBParallaxScrollerTableVC.h"
+
+@implementation RBParallaxScrollerTableVC
 
 static CGFloat WindowHeight = 200.0;
 static CGFloat ImageHeight  = 300.0;
 
-- (id)initWithImage:(UIImage *)image {
+- (id)initWithImages:(NSArray *)images {
     self = [super initWithNibName:nil bundle:nil];
-    if (self) {        
+    if (self) {
         _imageScroller  = [[UIScrollView alloc] initWithFrame:CGRectZero];
         _imageScroller.backgroundColor                  = [UIColor clearColor];
         _imageScroller.showsHorizontalScrollIndicator   = NO;
         _imageScroller.showsVerticalScrollIndicator     = NO;
         
-        _imageView = [[UIImageView alloc] initWithImage:image];
-        [_imageScroller addSubview:_imageView];
+        NSMutableArray *imageViews = [NSMutableArray arrayWithCapacity:[images count]];
+        for (UIImage *image in images) {
+            UIImageView *imageView  = [[[UIImageView alloc] initWithImage:image] autorelease];
+            
+            [imageViews addObject:imageView];
+            [_imageScroller addSubview:imageView];
+        }
+        _imageViews = [imageViews retain];
+        
+        _transparentScroller = [[UIScrollView alloc] initWithFrame:CGRectZero];
+        _transparentScroller.backgroundColor                = [UIColor clearColor];
+        _transparentScroller.delegate                       = self;
+        _transparentScroller.bounces                        = NO;
+        _transparentScroller.pagingEnabled                  = YES;
+        _transparentScroller.showsVerticalScrollIndicator   = NO;
+        _transparentScroller.showsHorizontalScrollIndicator = NO;
         
         _tableView = [[UITableView alloc] init];
         _tableView.backgroundColor              = [UIColor clearColor];
@@ -59,26 +74,35 @@ static CGFloat ImageHeight  = 300.0;
 
 - (void)updateOffsets {
     CGFloat yOffset   = _tableView.contentOffset.y;
+    CGFloat xOffset   = _transparentScroller.contentOffset.x;
     CGFloat threshold = ImageHeight - WindowHeight;
     
     if (yOffset > -threshold && yOffset < 0) {
-        _imageScroller.contentOffset = CGPointMake(0.0, floorf(yOffset / 2.0));
+        _imageScroller.contentOffset = CGPointMake(xOffset, floorf(yOffset / 2.0));
     } else if (yOffset < 0) {
-        _imageScroller.contentOffset = CGPointMake(0.0, yOffset + floorf(threshold / 2.0));
+        _imageScroller.contentOffset = CGPointMake(xOffset, yOffset + floorf(threshold / 2.0));
     } else {
-        _imageScroller.contentOffset = CGPointMake(0.0, yOffset);
+        _imageScroller.contentOffset = CGPointMake(xOffset, yOffset);
     }
 }
 
 #pragma mark - View Layout
-- (void)layoutImage {
+
+- (void)layoutImages {
     CGFloat imageWidth   = _imageScroller.frame.size.width;
     CGFloat imageYOffset = floorf((WindowHeight  - ImageHeight) / 2.0);
     CGFloat imageXOffset = 0.0;
     
-    _imageView.frame             = CGRectMake(imageXOffset, imageYOffset, imageWidth, ImageHeight);
-    _imageScroller.contentSize   = CGSizeMake(imageWidth, self.view.bounds.size.height);
+    for (UIImageView *imageView in _imageViews) {
+        imageView.frame = CGRectMake(imageXOffset, imageYOffset, imageWidth, ImageHeight);        
+        imageXOffset   += imageWidth;
+    }
+    
+    _imageScroller.contentSize = CGSizeMake([_imageViews count]*imageWidth, self.view.bounds.size.height);
     _imageScroller.contentOffset = CGPointMake(0.0, 0.0);
+    
+    _transparentScroller.contentSize = CGSizeMake([_imageViews count]*imageWidth, WindowHeight);
+    _transparentScroller.contentOffset = CGPointMake(0.0, 0.0);
 }
 
 #pragma mark - View lifecycle
@@ -89,10 +113,12 @@ static CGFloat ImageHeight  = 300.0;
     CGRect bounds = self.view.bounds;
     
     _imageScroller.frame        = CGRectMake(0.0, 0.0, bounds.size.width, bounds.size.height);
+    _transparentScroller.frame  = CGRectMake(0.0, 0.0, bounds.size.width, WindowHeight);
+    
     _tableView.backgroundView   = nil;
     _tableView.frame            = bounds;
     
-    [self layoutImage];
+    [self layoutImages];
     [self updateOffsets];
 }
 
@@ -126,6 +152,8 @@ static CGFloat ImageHeight  = 300.0;
             cell.backgroundColor             = [UIColor clearColor];
             cell.contentView.backgroundColor = [UIColor clearColor];
             cell.selectionStyle              = UITableViewCellSelectionStyleNone;
+            
+            [cell.contentView addSubview:_transparentScroller];
         }
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:cellReuseIdentifier];
@@ -133,7 +161,7 @@ static CGFloat ImageHeight  = 300.0;
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellReuseIdentifier] autorelease];
             cell.contentView.backgroundColor = [UIColor blueColor];
             cell.selectionStyle              = UITableViewCellSelectionStyleNone;
-
+            
         }
     }
     
@@ -149,8 +177,9 @@ static CGFloat ImageHeight  = 300.0;
 #pragma mark - Dealloc
 
 - (void)dealloc {
-    RB_SAFE_RELEASE(_imageView);
+    RB_SAFE_RELEASE(_imageViews);
     RB_SAFE_RELEASE(_imageScroller);
+    RB_SAFE_RELEASE(_transparentScroller);
     RB_SAFE_RELEASE(_tableView);
     
     [super dealloc];

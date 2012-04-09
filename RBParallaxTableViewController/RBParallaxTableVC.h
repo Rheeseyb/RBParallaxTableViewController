@@ -26,9 +26,11 @@
 
 
 @interface RBParallaxTableVC : UIViewController <UITableViewDataSource, UITableViewDelegate> {
-    UIScrollView *_backgroundView;
-    UIImageView  *_imageView;
-    UITableView  *_tableView;
+    UIImageView     *_imageView;
+    UIScrollView    *_imageScroller;
+    UITableView     *_tableView;
 }
+
+- (id)initWithImage:(UIImage *)image;
 
 @end

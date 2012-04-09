@@ -1,5 +1,5 @@
 //
-//  RBAppDelegate.m
+//  RBParallaxScrollerTableVC.h
 //  RBParallaxTableViewController
 //
 //  Created by @RheeseyB on 01/02/2012.
@@ -25,31 +25,13 @@
 //
 
 
-#import "RBAppDelegate.h"
-#import "RBParallaxDemo.h"
-
-@implementation RBAppDelegate
-
-@synthesize window = _window;
-
-- (void)dealloc
-{
-    [_window release];
-    [super dealloc];
+@interface RBParallaxScrollerTableVC : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+    NSArray         *_imageViews;
+    UIScrollView    *_imageScroller;
+    UIScrollView    *_transparentScroller;
+    UITableView     *_tableView;
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    RBParallaxDemo         *demoController = [[[RBParallaxDemo alloc] initWithNibName:nil bundle:nil] autorelease];
-    UINavigationController *navController  = [[[UINavigationController alloc] initWithRootViewController:demoController] autorelease];
-    demoController.title                   = @"Parallax Demo";
-    
-    self.window                     = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    self.window.rootViewController  = navController;
-    self.window.backgroundColor     = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    
-    return YES;
-}
+- (id)initWithImages:(NSArray *)images;
 
 @end

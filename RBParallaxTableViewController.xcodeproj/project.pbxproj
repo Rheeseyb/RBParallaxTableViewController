@@ -14,8 +14,16 @@
 		3178887714D9E0FF005DC06E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3178887614D9E0FF005DC06E /* main.m */; };
 		3178887B14D9E0FF005DC06E /* RBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3178887A14D9E0FF005DC06E /* RBAppDelegate.m */; };
 		3178888314D9E117005DC06E /* RBParallaxTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3178888214D9E117005DC06E /* RBParallaxTableVC.m */; };
-		3178888A14D9E550005DC06E /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 3178888814D9E550005DC06E /* image.png */; };
-		3178888B14D9E550005DC06E /* image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3178888914D9E550005DC06E /* image@2x.png */; };
+		31C1422515333E5C00DE651F /* demo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 31C1421B15333E5C00DE651F /* demo1.png */; };
+		31C1422615333E5C00DE651F /* demo1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 31C1421C15333E5C00DE651F /* demo1@2x.png */; };
+		31C1422715333E5C00DE651F /* demo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 31C1421D15333E5C00DE651F /* demo2.png */; };
+		31C1422815333E5C00DE651F /* demo2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 31C1421E15333E5C00DE651F /* demo2@2x.png */; };
+		31C1422915333E5C00DE651F /* demo3.png in Resources */ = {isa = PBXBuildFile; fileRef = 31C1421F15333E5C00DE651F /* demo3.png */; };
+		31C1422A15333E5C00DE651F /* demo3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 31C1422015333E5C00DE651F /* demo3@2x.png */; };
+		31C1422B15333E5C00DE651F /* demo4.png in Resources */ = {isa = PBXBuildFile; fileRef = 31C1422115333E5C00DE651F /* demo4.png */; };
+		31C1422C15333E5C00DE651F /* demo4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 31C1422215333E5C00DE651F /* demo4@2x.png */; };
+		31C1422D15333E5C00DE651F /* RBParallaxDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C1422415333E5C00DE651F /* RBParallaxDemo.m */; };
+		31C1422E15333E7000DE651F /* RBParallaxScrollerTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C1421915333E5300DE651F /* RBParallaxScrollerTableVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,10 +37,20 @@
 		3178887814D9E0FF005DC06E /* RBParallaxTableViewController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RBParallaxTableViewController-Prefix.pch"; sourceTree = "<group>"; };
 		3178887914D9E0FF005DC06E /* RBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBAppDelegate.h; sourceTree = "<group>"; };
 		3178887A14D9E0FF005DC06E /* RBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBAppDelegate.m; sourceTree = "<group>"; };
-		3178888114D9E117005DC06E /* RBParallaxTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; path = RBParallaxTableVC.h; sourceTree = "<group>"; };
+		3178888114D9E117005DC06E /* RBParallaxTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBParallaxTableVC.h; sourceTree = "<group>"; };
 		3178888214D9E117005DC06E /* RBParallaxTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBParallaxTableVC.m; sourceTree = "<group>"; };
-		3178888814D9E550005DC06E /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
-		3178888914D9E550005DC06E /* image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image@2x.png"; sourceTree = "<group>"; };
+		31C1421815333E5300DE651F /* RBParallaxScrollerTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBParallaxScrollerTableVC.h; sourceTree = "<group>"; };
+		31C1421915333E5300DE651F /* RBParallaxScrollerTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RBParallaxScrollerTableVC.m; sourceTree = "<group>"; };
+		31C1421B15333E5C00DE651F /* demo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo1.png; sourceTree = "<group>"; };
+		31C1421C15333E5C00DE651F /* demo1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demo1@2x.png"; sourceTree = "<group>"; };
+		31C1421D15333E5C00DE651F /* demo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo2.png; sourceTree = "<group>"; };
+		31C1421E15333E5C00DE651F /* demo2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demo2@2x.png"; sourceTree = "<group>"; };
+		31C1421F15333E5C00DE651F /* demo3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo3.png; sourceTree = "<group>"; };
+		31C1422015333E5C00DE651F /* demo3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demo3@2x.png"; sourceTree = "<group>"; };
+		31C1422115333E5C00DE651F /* demo4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo4.png; sourceTree = "<group>"; };
+		31C1422215333E5C00DE651F /* demo4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demo4@2x.png"; sourceTree = "<group>"; };
+		31C1422315333E5C00DE651F /* RBParallaxDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBParallaxDemo.h; sourceTree = "<group>"; };
+		31C1422415333E5C00DE651F /* RBParallaxDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBParallaxDemo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,12 +97,13 @@
 		3178887014D9E0FF005DC06E /* RBParallaxTableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3178888814D9E550005DC06E /* image.png */,
-				3178888914D9E550005DC06E /* image@2x.png */,
+				31C1421A15333E5C00DE651F /* Demo */,
 				3178887914D9E0FF005DC06E /* RBAppDelegate.h */,
 				3178887A14D9E0FF005DC06E /* RBAppDelegate.m */,
 				3178888114D9E117005DC06E /* RBParallaxTableVC.h */,
 				3178888214D9E117005DC06E /* RBParallaxTableVC.m */,
+				31C1421815333E5300DE651F /* RBParallaxScrollerTableVC.h */,
+				31C1421915333E5300DE651F /* RBParallaxScrollerTableVC.m */,
 				3178887114D9E0FF005DC06E /* Supporting Files */,
 			);
 			path = RBParallaxTableViewController;
@@ -99,6 +118,23 @@
 				3178887814D9E0FF005DC06E /* RBParallaxTableViewController-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		31C1421A15333E5C00DE651F /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				31C1421B15333E5C00DE651F /* demo1.png */,
+				31C1421C15333E5C00DE651F /* demo1@2x.png */,
+				31C1421D15333E5C00DE651F /* demo2.png */,
+				31C1421E15333E5C00DE651F /* demo2@2x.png */,
+				31C1421F15333E5C00DE651F /* demo3.png */,
+				31C1422015333E5C00DE651F /* demo3@2x.png */,
+				31C1422115333E5C00DE651F /* demo4.png */,
+				31C1422215333E5C00DE651F /* demo4@2x.png */,
+				31C1422315333E5C00DE651F /* RBParallaxDemo.h */,
+				31C1422415333E5C00DE651F /* RBParallaxDemo.m */,
+			);
+			path = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,8 +189,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3178887514D9E0FF005DC06E /* InfoPlist.strings in Resources */,
-				3178888A14D9E550005DC06E /* image.png in Resources */,
-				3178888B14D9E550005DC06E /* image@2x.png in Resources */,
+				31C1422515333E5C00DE651F /* demo1.png in Resources */,
+				31C1422615333E5C00DE651F /* demo1@2x.png in Resources */,
+				31C1422715333E5C00DE651F /* demo2.png in Resources */,
+				31C1422815333E5C00DE651F /* demo2@2x.png in Resources */,
+				31C1422915333E5C00DE651F /* demo3.png in Resources */,
+				31C1422A15333E5C00DE651F /* demo3@2x.png in Resources */,
+				31C1422B15333E5C00DE651F /* demo4.png in Resources */,
+				31C1422C15333E5C00DE651F /* demo4@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,9 +207,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31C1422E15333E7000DE651F /* RBParallaxScrollerTableVC.m in Sources */,
 				3178887714D9E0FF005DC06E /* main.m in Sources */,
 				3178887B14D9E0FF005DC06E /* RBAppDelegate.m in Sources */,
 				3178888314D9E117005DC06E /* RBParallaxTableVC.m in Sources */,
+				31C1422D15333E5C00DE651F /* RBParallaxDemo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +313,7 @@
 				3178888014D9E0FF005DC06E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
